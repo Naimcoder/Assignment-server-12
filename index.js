@@ -21,6 +21,7 @@ async function run(){
     const productCollection= client.db('product_Db').collection('BrandName')
     const categoryCollection= client.db('product_Db').collection('allProduct')
     const userCollection =client.db('product_Db').collection('users')
+    const bookingsCollection =client.db('product_Db').collection('bookings')
     try{
         app.get('/categoryname',async(req,res)=>{
             const query={}
@@ -53,6 +54,13 @@ async function run(){
         //       const category = await categoryCollection.findOne(query);
         //       res.send(category);
         //   })
+
+        //boooking items saved
+        app.post('/bookings', async(req, res) => {
+            const bookings = req.body;
+            const result = await bookingsCollection.insertOne(bookings)
+            res.send(result);
+          })
     }
 
 
