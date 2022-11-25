@@ -68,7 +68,7 @@ async function run() {
       res.send(result);
     });
 
-    //
+    //categorys post
     app.post("/categorys", async (req, res) => {
       const caregory = req.body;
       const result = await categoryCollection.insertOne(caregory);
@@ -82,7 +82,7 @@ async function run() {
       res.send(users);
     });
 
-    //
+    //admin get 
     app.get("/users/admin/:email", async (req, res) => {
       const email = req.params.email;
       const query = { email };
