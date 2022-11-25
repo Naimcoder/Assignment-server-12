@@ -105,6 +105,7 @@ async function run() {
         options
       );
       res.send(result);
+    
     });
 //  
 app.delete('/users/admin/:id',async(req,res)=>{
