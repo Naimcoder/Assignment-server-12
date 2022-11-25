@@ -89,7 +89,7 @@ async function run() {
       const user = await userCollection.findOne(query);
       res.send({ isAdmin: user?.role === "admin" });
     });
-    //
+    //admin role 
     app.put("/users/admin/:id", async (req, res) => {
       const id = req.params.id;
       const filter = { _id: ObjectId(id) };
@@ -107,7 +107,7 @@ async function run() {
       res.send(result);
     
     });
-//  admin delted
+//  admin deleted
 app.delete('/users/admin/:id',async(req,res)=>{
   const id= req.params.id
   const query= {_id:ObjectId(id)}
