@@ -107,7 +107,7 @@ async function run() {
       res.send(result);
     
     });
-//  
+//  admin delted
 app.delete('/users/admin/:id',async(req,res)=>{
   const id= req.params.id
   const query= {_id:ObjectId(id)}
