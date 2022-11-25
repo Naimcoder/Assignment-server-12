@@ -114,7 +114,7 @@ app.delete('/users/admin/:id',async(req,res)=>{
   const result=await userCollection.deleteOne(query)
   res.send(result)
 })
-    //all user
+    //all users
     app.get("/bookings", async (req, res) => {
       let query = {};
       if (req.query.email) {
