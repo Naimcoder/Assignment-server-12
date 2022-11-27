@@ -94,10 +94,16 @@ async function run() {
       const email = req.params.email;
       const query = { email };
       const seller = await userCollection.findOne(query);
-      res.send({ isSeller: seller?.selects === "seller" });
+      res.send({ isSeller: seller?.role === "seller" });
+    });
+    app.get("/users/user/:email", async (req, res) => {
+      const email = req.params.email;
+      const query = { email };
+      const user = await userCollection.findOne(query);
+      res.send({ isUser: user?.role === "user" });
     });
     //admin role 
-    app.put("/users/admin/:id", async (req, res) => {
+    app.patch("/users/admin/:id", async (req, res) => {
       const id = req.params.id;
       const filter = { _id: ObjectId(id) };
       const options = { upsert: true };
